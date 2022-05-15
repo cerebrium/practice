@@ -17,7 +17,7 @@ class DataStructures {
         head.left.right = new BNode(8);
         head.right.left = new BNode(13);
         head.right.right = new BNode(20);
-        head.right.right.right = new BNode(5);
+        head.right.right.right = new BNode(25);
         return head;
         /*
     

@@ -1,6 +1,8 @@
 import { DataStructures, BNode, LinkedNode } from "./ds";
 const ds = new DataStructures();
 
+// RUN 'npm run-script run' TO RUN A FUNCTION
+
 function validateBinaryTree(head: BNode) {
   const _iterate = (node: BNode | null, min: number, max: number) => {
     if (!node) return true;

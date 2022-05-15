@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
 const ds = new ds_1.DataStructures();
+// RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
     const _iterate = (node, min, max) => {
         if (!node)
