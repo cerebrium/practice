@@ -5,6 +5,7 @@ import {
   emails2,
 } from "./questions/uniqueEmailAddresses";
 import { queReconstructionByHeight } from "./questions/queReconstructionByHeight";
+import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -68,4 +69,15 @@ console.assert(
     [6, 1],
     [5, 2],
   ]).toString()}`
+);
+
+// merge k sorted linked lists
+let listOne = ds.createLinkedList([1, 4, 5]);
+let listTwo = ds.createLinkedList([1, 3, 4]);
+let listThree = ds.createLinkedList([2, 6]);
+
+console.assert(
+  arrayOfMergedLists([listOne, listTwo, listThree]).toString() ===
+    [1, 1, 2, 3, 4, 4, 5, 6].toString(),
+  "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
 );

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
 const queReconstructionByHeight_1 = require("./questions/queReconstructionByHeight");
+const mergeKLinkedLists_1 = require("./questions/mergeKLinkedLists");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -33,7 +34,7 @@ console.assert((0, queReconstructionByHeight_1.queReconstructionByHeight)([
     [5, 0],
     [6, 1],
     [5, 2],
-]).toString() !==
+]).toString() ===
     [
         [5, 0],
         [7, 0],
@@ -56,4 +57,10 @@ console.assert((0, queReconstructionByHeight_1.queReconstructionByHeight)([
     [6, 1],
     [5, 2],
 ]).toString()}`);
+// merge k sorted linked lists
+let listOne = ds.createLinkedList([1, 4, 5]);
+let listTwo = ds.createLinkedList([1, 3, 4]);
+let listThree = ds.createLinkedList([2, 6]);
+console.assert((0, mergeKLinkedLists_1.arrayOfMergedLists)([listOne, listTwo, listThree]).toString() ===
+    [1, 1, 2, 3, 4, 4, 5, 6].toString(), "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6");
 //# sourceMappingURL=index.js.map

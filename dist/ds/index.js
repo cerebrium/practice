@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DataStructures = void 0;
+exports.LLNode = exports.DataStructures = void 0;
 class DataStructures {
     createBinaryTree() {
         class BNode {
@@ -31,28 +31,28 @@ class DataStructures {
     
         */
     }
-    createLinkedList() {
+    createLinkedList(nums) {
         class Node {
             constructor(value, next = null) {
                 this.value = value;
                 this.next = next;
             }
         }
-        const head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
-        head.next.next.next.next.next = new Node(6);
-        head.next.next.next.next.next.next = new Node(7);
-        head.next.next.next.next.next.next.next = new Node(8);
+        const head = new Node(nums[0]);
+        let current = head;
+        for (let i = 1; i < nums.length; i++) {
+            current.next = new Node(nums[i]);
+            current = current.next;
+        }
         return head;
-        /*
-    
-                1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
-    
-            */
     }
 }
 exports.DataStructures = DataStructures;
+class LLNode {
+    constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
+exports.LLNode = LLNode;
 //# sourceMappingURL=index.js.map
