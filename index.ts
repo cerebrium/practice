@@ -1,4 +1,9 @@
-import { DataStructures, BNode, LinkedNode } from "./ds";
+import { DataStructures, BNode } from "./ds";
+import {
+  emails,
+  determineRecipients,
+  emails2,
+} from "./questions/uniqueEmailAddresses";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -22,5 +27,9 @@ function validateBinaryTree(head: BNode) {
   return _iterate(head, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 }
 
-const head = ds.createBinaryTree();
-console.log(validateBinaryTree(head));
+// const head = ds.createBinaryTree();
+// console.log(validateBinaryTree(head));
+
+// Unique emails
+console.log("valid emails (2): ", determineRecipients(emails));
+console.log("valid emails (3): ", determineRecipients(emails2));

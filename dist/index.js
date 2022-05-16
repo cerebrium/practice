@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
+const uniqueEmailAddresses_1 = require("./questions/uniqueEmailAddresses");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -19,6 +20,9 @@ function validateBinaryTree(head) {
     };
     return _iterate(head, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 }
-const head = ds.createBinaryTree();
-console.log(validateBinaryTree(head));
+// const head = ds.createBinaryTree();
+// console.log(validateBinaryTree(head));
+// Unique emails
+console.log("valid emails (2): ", (0, uniqueEmailAddresses_1.determineRecipients)(uniqueEmailAddresses_1.emails));
+console.log("valid emails (3): ", (0, uniqueEmailAddresses_1.determineRecipients)(uniqueEmailAddresses_1.emails2));
 //# sourceMappingURL=index.js.map
