@@ -39,7 +39,7 @@ export class DataStructures {
     */
   }
 
-  public createLinkedList() {
+  public createLinkedList(nums: Array<number>) {
     class Node {
       value: number;
       next: Node | null;
@@ -49,22 +49,14 @@ export class DataStructures {
       }
     }
 
-    const head = new Node(1);
-    head.next = new Node(2);
-    head.next.next = new Node(3);
-    head.next.next.next = new Node(4);
-    head.next.next.next.next = new Node(5);
-    head.next.next.next.next.next = new Node(6);
-    head.next.next.next.next.next.next = new Node(7);
-    head.next.next.next.next.next.next.next = new Node(8);
+    const head = new Node(nums[0]);
+    let current = head;
+    for (let i = 1; i < nums.length; i++) {
+      current.next = new Node(nums[i]);
+      current = current.next;
+    }
 
     return head;
-
-    /*
-
-            1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
-
-        */
   }
 }
 
@@ -78,3 +70,12 @@ export type LinkedNode = {
   value: number;
   next: LinkedNode | null;
 };
+
+export class LLNode {
+  value: number;
+  next: Node | null;
+  constructor(value: number, next: Node | null = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
