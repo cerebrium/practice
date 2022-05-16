@@ -4,6 +4,7 @@ import {
   determineRecipients,
   emails2,
 } from "./questions/uniqueEmailAddresses";
+import { queReconstructionByHeight } from "./questions/queReconstructionByHeight";
 import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
 const ds = new DataStructures();
 
@@ -34,6 +35,41 @@ function validateBinaryTree(head: BNode) {
 // Unique emails
 // console.log("valid emails (2): ", determineRecipients(emails));
 // console.log("valid emails (3): ", determineRecipients(emails2));
+
+// que reconstruction by height
+console.assert(
+  queReconstructionByHeight([
+    [7, 0],
+    [4, 4],
+    [7, 1],
+    [5, 0],
+    [6, 1],
+    [5, 2],
+  ]).toString() ===
+    [
+      [5, 0],
+      [7, 0],
+      [5, 2],
+      [6, 1],
+      [4, 4],
+      [7, 1],
+    ].toString(),
+  `Expecting: [
+    [5, 0],
+    [7, 0],
+    [5, 2],
+    [6, 1],
+    [4, 4],
+    [7, 1],
+  ], got: ${queReconstructionByHeight([
+    [7, 0],
+    [4, 4],
+    [7, 1],
+    [5, 0],
+    [6, 1],
+    [5, 2],
+  ]).toString()}`
+);
 
 // merge k sorted linked lists
 let listOne = ds.createLinkedList([1, 4, 5]);
