@@ -73,8 +73,8 @@ export type LinkedNode = {
 
 export class LLNode {
   value: number;
-  next: Node | null;
-  constructor(value: number, next: Node | null = null) {
+  next: LLNode | null;
+  constructor(value: number, next: LLNode | null = null) {
     this.value = value;
     this.next = next;
   }

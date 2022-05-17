@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
-const removeZeroConsecutiveNodes_1 = require("./questions/removeZeroConsecutiveNodes");
+const intersectionOfTwoLinkedLists_1 = require("./questions/intersectionOfTwoLinkedLists");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -68,7 +68,17 @@ function validateBinaryTree(head) {
 //     [1, 1, 2, 3, 4, 4, 5, 6].toString(),
 //   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
 // );
-let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
-console.assert((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString() === [3, 4, 1].toString(), `Expecting: 3 -> 4 -> 1, got: ${(0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString()}`);
-console.log((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne));
+// let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+// console.assert(
+//   provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
+//   `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
+// );
+// console.log(provideParsedLinkedList(listOne));
+let a = new ds_1.LLNode(1);
+a.next = new ds_1.LLNode(2);
+a.next.next = new ds_1.LLNode(3);
+a.next.next.next = new ds_1.LLNode(4);
+let b = new ds_1.LLNode(6);
+b.next = a.next.next;
+console.assert((0, intersectionOfTwoLinkedLists_1.intersection)(a, b) === 3, "Expecting 3, got: " + (0, intersectionOfTwoLinkedLists_1.intersection)(a, b));
 //# sourceMappingURL=index.js.map
