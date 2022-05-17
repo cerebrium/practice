@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
-const removeZeroConsecutiveNodes_1 = require("./questions/removeZeroConsecutiveNodes");
+const groupWordsThatAreAnagrams_1 = require("./questions/groupWordsThatAreAnagrams");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -68,7 +68,14 @@ function validateBinaryTree(head) {
 //     [1, 1, 2, 3, 4, 4, 5, 6].toString(),
 //   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
 // );
-let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
-console.assert((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString() === [3, 4, 1].toString(), `Expecting: 3 -> 4 -> 1, got: ${(0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString()}`);
-console.log((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne));
+// let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+// console.assert(
+//   provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
+//   `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
+// );
+// console.log(provideParsedLinkedList(listOne));
+// find anagram pairs
+let input = ["abc", "bcd", "cba", "cbd", "efg"];
+let output = [["abc", "cba"], ["bcd", "cbd"], ["efg"]];
+console.assert((0, groupWordsThatAreAnagrams_1.findAnagrams)(input).toString() === output.toString(), `Expecting: ${output}, got: ${(0, groupWordsThatAreAnagrams_1.findAnagrams)(input)}`);
 //# sourceMappingURL=index.js.map
