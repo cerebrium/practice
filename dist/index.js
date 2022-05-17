@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
 const firstMissingPositiveInteger_1 = require("./questions/firstMissingPositiveInteger");
+const groupWordsThatAreAnagrams_1 = require("./questions/groupWordsThatAreAnagrams");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -76,4 +77,8 @@ function validateBinaryTree(head) {
 // console.log(provideParsedLinkedList(listOne));
 let example = [3, 4, -1, 1];
 console.assert((0, firstMissingPositiveInteger_1.findFirstMissingPositive)(example) === 2, `Expecting: 2, got: ${(0, firstMissingPositiveInteger_1.findFirstMissingPositive)(example)}`);
+// find anagram pairs
+let input = ["abc", "bcd", "cba", "cbd", "efg"];
+let output = [["abc", "cba"], ["bcd", "cbd"], ["efg"]];
+console.assert((0, groupWordsThatAreAnagrams_1.findAnagrams)(input).toString() === output.toString(), `Expecting: ${output}, got: ${(0, groupWordsThatAreAnagrams_1.findAnagrams)(input)}`);
 //# sourceMappingURL=index.js.map

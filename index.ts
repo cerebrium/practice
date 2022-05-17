@@ -8,6 +8,7 @@ import { queReconstructionByHeight } from "./questions/queReconstructionByHeight
 import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
 import { provideParsedLinkedList } from "./questions/removeZeroConsecutiveNodes";
 import { findFirstMissingPositive } from "./questions/firstMissingPositiveInteger";
+import { findAnagrams } from "./questions/groupWordsThatAreAnagrams";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -96,4 +97,12 @@ let example = [3, 4, -1, 1];
 console.assert(
   findFirstMissingPositive(example) === 2,
   `Expecting: 2, got: ${findFirstMissingPositive(example)}`
+);
+// find anagram pairs
+let input = ["abc", "bcd", "cba", "cbd", "efg"];
+let output = [["abc", "cba"], ["bcd", "cbd"], ["efg"]];
+
+console.assert(
+  findAnagrams(input).toString() === output.toString(),
+  `Expecting: ${output}, got: ${findAnagrams(input)}`
 );
