@@ -7,6 +7,7 @@ import {
 import { queReconstructionByHeight } from "./questions/queReconstructionByHeight";
 import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
 import { provideParsedLinkedList } from "./questions/removeZeroConsecutiveNodes";
+import { formatLicenseKey } from "./questions/licenseKeyFormatting";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -83,10 +84,28 @@ function validateBinaryTree(head: BNode) {
 //   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
 // );
 
-let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+// let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+// console.assert(
+//   provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
+//   `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
+// );
+
+// console.log(provideParsedLinkedList(listOne));
+
+// format license keys
+let input = "5F3Z-2e-9-W",
+  k = 4;
+let output = "5F3Z-2E9W";
+
 console.assert(
-  provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
-  `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
+  formatLicenseKey(input, k) === output,
+  `Expecting: ${output}, got: ${formatLicenseKey(input, k)}`
 );
 
-console.log(provideParsedLinkedList(listOne));
+(input = "2-5g-3-J"), (k = 2);
+output = "2-5G-3J";
+
+console.assert(
+  formatLicenseKey(input, k) === output,
+  `Expecting: ${output}, got: ${formatLicenseKey(input, k)}`
+);
