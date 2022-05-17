@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ds_1 = require("./ds");
-const queReconstructionByHeight_1 = require("./questions/queReconstructionByHeight");
-const mergeKLinkedLists_1 = require("./questions/mergeKLinkedLists");
+const removeZeroConsecutiveNodes_1 = require("./questions/removeZeroConsecutiveNodes");
 const ds = new ds_1.DataStructures();
 // RUN 'npm run-script run' TO RUN A FUNCTION
 function validateBinaryTree(head) {
@@ -27,40 +26,49 @@ function validateBinaryTree(head) {
 // console.log("valid emails (2): ", determineRecipients(emails));
 // console.log("valid emails (3): ", determineRecipients(emails2));
 // que reconstruction by height
-console.assert((0, queReconstructionByHeight_1.queReconstructionByHeight)([
-    [7, 0],
-    [4, 4],
-    [7, 1],
-    [5, 0],
-    [6, 1],
-    [5, 2],
-]).toString() ===
-    [
-        [5, 0],
-        [7, 0],
-        [5, 2],
-        [6, 1],
-        [4, 4],
-        [7, 1],
-    ].toString(), `Expecting: [
-    [5, 0],
-    [7, 0],
-    [5, 2],
-    [6, 1],
-    [4, 4],
-    [7, 1],
-  ], got: ${(0, queReconstructionByHeight_1.queReconstructionByHeight)([
-    [7, 0],
-    [4, 4],
-    [7, 1],
-    [5, 0],
-    [6, 1],
-    [5, 2],
-]).toString()}`);
+// console.assert(
+//   queReconstructionByHeight([
+//     [7, 0],
+//     [4, 4],
+//     [7, 1],
+//     [5, 0],
+//     [6, 1],
+//     [5, 2],
+//   ]).toString() ===
+//     [
+//       [5, 0],
+//       [7, 0],
+//       [5, 2],
+//       [6, 1],
+//       [4, 4],
+//       [7, 1],
+//     ].toString(),
+//   `Expecting: [
+//     [5, 0],
+//     [7, 0],
+//     [5, 2],
+//     [6, 1],
+//     [4, 4],
+//     [7, 1],
+//   ], got: ${queReconstructionByHeight([
+//     [7, 0],
+//     [4, 4],
+//     [7, 1],
+//     [5, 0],
+//     [6, 1],
+//     [5, 2],
+//   ]).toString()}`
+// );
 // merge k sorted linked lists
-let listOne = ds.createLinkedList([1, 4, 5]);
-let listTwo = ds.createLinkedList([1, 3, 4]);
-let listThree = ds.createLinkedList([2, 6]);
-console.assert((0, mergeKLinkedLists_1.arrayOfMergedLists)([listOne, listTwo, listThree]).toString() ===
-    [1, 1, 2, 3, 4, 4, 5, 6].toString(), "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6");
+// let listOne = ds.createLinkedList([1, 4, 5]);
+// let listTwo = ds.createLinkedList([1, 3, 4]);
+// let listThree = ds.createLinkedList([2, 6]);
+// console.assert(
+//   arrayOfMergedLists([listOne, listTwo, listThree]).toString() ===
+//     [1, 1, 2, 3, 4, 4, 5, 6].toString(),
+//   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
+// );
+let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+console.assert((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString() === [3, 4, 1].toString(), `Expecting: 3 -> 4 -> 1, got: ${(0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne).toString()}`);
+console.log((0, removeZeroConsecutiveNodes_1.provideParsedLinkedList)(listOne));
 //# sourceMappingURL=index.js.map

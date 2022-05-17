@@ -6,6 +6,7 @@ import {
 } from "./questions/uniqueEmailAddresses";
 import { queReconstructionByHeight } from "./questions/queReconstructionByHeight";
 import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
+import { provideParsedLinkedList } from "./questions/removeZeroConsecutiveNodes";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -37,47 +38,55 @@ function validateBinaryTree(head: BNode) {
 // console.log("valid emails (3): ", determineRecipients(emails2));
 
 // que reconstruction by height
-console.assert(
-  queReconstructionByHeight([
-    [7, 0],
-    [4, 4],
-    [7, 1],
-    [5, 0],
-    [6, 1],
-    [5, 2],
-  ]).toString() ===
-    [
-      [5, 0],
-      [7, 0],
-      [5, 2],
-      [6, 1],
-      [4, 4],
-      [7, 1],
-    ].toString(),
-  `Expecting: [
-    [5, 0],
-    [7, 0],
-    [5, 2],
-    [6, 1],
-    [4, 4],
-    [7, 1],
-  ], got: ${queReconstructionByHeight([
-    [7, 0],
-    [4, 4],
-    [7, 1],
-    [5, 0],
-    [6, 1],
-    [5, 2],
-  ]).toString()}`
-);
+// console.assert(
+//   queReconstructionByHeight([
+//     [7, 0],
+//     [4, 4],
+//     [7, 1],
+//     [5, 0],
+//     [6, 1],
+//     [5, 2],
+//   ]).toString() ===
+//     [
+//       [5, 0],
+//       [7, 0],
+//       [5, 2],
+//       [6, 1],
+//       [4, 4],
+//       [7, 1],
+//     ].toString(),
+//   `Expecting: [
+//     [5, 0],
+//     [7, 0],
+//     [5, 2],
+//     [6, 1],
+//     [4, 4],
+//     [7, 1],
+//   ], got: ${queReconstructionByHeight([
+//     [7, 0],
+//     [4, 4],
+//     [7, 1],
+//     [5, 0],
+//     [6, 1],
+//     [5, 2],
+//   ]).toString()}`
+// );
 
 // merge k sorted linked lists
-let listOne = ds.createLinkedList([1, 4, 5]);
-let listTwo = ds.createLinkedList([1, 3, 4]);
-let listThree = ds.createLinkedList([2, 6]);
+// let listOne = ds.createLinkedList([1, 4, 5]);
+// let listTwo = ds.createLinkedList([1, 3, 4]);
+// let listThree = ds.createLinkedList([2, 6]);
 
+// console.assert(
+//   arrayOfMergedLists([listOne, listTwo, listThree]).toString() ===
+//     [1, 1, 2, 3, 4, 4, 5, 6].toString(),
+//   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
+// );
+
+let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
 console.assert(
-  arrayOfMergedLists([listOne, listTwo, listThree]).toString() ===
-    [1, 1, 2, 3, 4, 4, 5, 6].toString(),
-  "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
+  provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
+  `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
 );
+
+console.log(provideParsedLinkedList(listOne));
