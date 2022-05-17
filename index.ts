@@ -7,6 +7,7 @@ import {
 import { queReconstructionByHeight } from "./questions/queReconstructionByHeight";
 import { arrayOfMergedLists } from "./questions/mergeKLinkedLists";
 import { provideParsedLinkedList } from "./questions/removeZeroConsecutiveNodes";
+import { findFirstMissingPositive } from "./questions/firstMissingPositiveInteger";
 const ds = new DataStructures();
 
 // RUN 'npm run-script run' TO RUN A FUNCTION
@@ -83,10 +84,16 @@ function validateBinaryTree(head: BNode) {
 //   "expecting: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6"
 // );
 
-let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
-console.assert(
-  provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
-  `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
-);
+// let listOne = ds.createLinkedList([3, 1, 2, -1, -2, 4, 1]);
+// console.assert(
+//   provideParsedLinkedList(listOne).toString() === [3, 4, 1].toString(),
+//   `Expecting: 3 -> 4 -> 1, got: ${provideParsedLinkedList(listOne).toString()}`
+// );
 
-console.log(provideParsedLinkedList(listOne));
+// console.log(provideParsedLinkedList(listOne));
+
+let example = [3, 4, -1, 1];
+console.assert(
+  findFirstMissingPositive(example) === 2,
+  `Expecting: 2, got: ${findFirstMissingPositive(example)}`
+);

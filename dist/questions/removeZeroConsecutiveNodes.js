@@ -10,7 +10,9 @@ function removeZeroSumNodes(head) {
     let checkSet = new Set([0]);
     let stack = [];
     let current = head;
+    // While there are nodes in the linked list
     while (current) {
+        // If the stack is empty, and the node.value is not zero, push it to the stack, add value to set
         if (!stack.length) {
             if (current.value === 0) {
                 current = current.next;
@@ -23,6 +25,7 @@ function removeZeroSumNodes(head) {
             current = current.next;
             continue;
         }
+        // If the stack is not empty, check if we have a previous state in the set, if we do, return to it
         const sum = stack[stack.length - 1].state + current.value;
         if (sum === 0) {
             stack[stack.length - 1].node.next = current.next;
@@ -38,6 +41,7 @@ function removeZeroSumNodes(head) {
             current = current.next;
             continue;
         }
+        // if no previous state found, push node onto the stack
         stack.push({
             state: sum,
             node: current,
