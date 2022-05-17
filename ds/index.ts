@@ -1,4 +1,7 @@
 export class DataStructures {
+  minHeap: Array<number> = [];
+  maxHeap: Array<number> = [];
+  constructor() {}
   public createBinaryTree() {
     class BNode {
       value: number;
@@ -58,6 +61,91 @@ export class DataStructures {
 
     return head;
   }
+
+  /*
+
+    1 . The root of the tree will be in position 1 of the array.
+    2. The left child of any given node at position n, will be located at 2n.
+    3. The right child of a node at position n will be located at position 2n + 1.
+    4. The parent of a node at position n is at position n/2.
+
+  */
+
+  public createMinHeap() {
+    return new minHeap();
+  }
+}
+
+class minHeap {
+  minHeap: Array<number> = [];
+
+  public insert = function (val) {
+    this.minHeap.push(val);
+    this.bubbleUp(this.minHeap.length - 1);
+  };
+
+  public bubbleUp = function (index) {
+    while (index > 0) {
+      // get the parent
+      var parent = Math.floor((index + 1) / 2) - 1;
+
+      // if parent is greater than child
+      if (this.minHeap[parent] > this.minHeap[index]) {
+        // swap
+        var temp = this.minHeap[parent];
+        this.minHeap[parent] = this.minHeap[index];
+        this.minHeap[index] = temp;
+      }
+
+      index = parent;
+    }
+  };
+
+  public extractMin = function () {
+    var min = this.minHeap[0];
+
+    // set first element to last element
+    this.minHeap[0] = this.minHeap.pop();
+
+    // call bubble down
+    this.bubbleDown(0);
+
+    return min;
+  };
+
+  public bubbleDown = function (index) {
+    while (true) {
+      var child = (index + 1) * 2;
+      var sibling = child - 1;
+      var toSwap = null;
+
+      // if current is greater than child
+      if (this.minHeap[index] > this.minHeap[child]) {
+        toSwap = child;
+      }
+
+      // if sibling is smaller than child, but also smaller than current
+      if (
+        this.minHeap[index] > this.minHeap[sibling] &&
+        (this.minHeap[child] == null ||
+          (this.minHeap[child] !== null &&
+            this.minHeap[sibling] < this.minHeap[child]))
+      ) {
+        toSwap = sibling;
+      }
+
+      // if we don't need to swap, then break.
+      if (toSwap == null) {
+        break;
+      }
+
+      var temp = this.minHeap[toSwap];
+      this.minHeap[toSwap] = this.minHeap[index];
+      this.minHeap[index] = temp;
+
+      index = toSwap;
+    }
+  };
 }
 
 export type BNode = {
